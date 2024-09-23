@@ -5,25 +5,25 @@ type AllType = {
   weight: number;
 };
 
-const top: Pick<AllType, "name" | "color"> = {
+const top = {
   name: "mango",
   color: "blue",
 };
 
-const bottom: Pick<AllType, "position" | "weight"> = {
+const bottom = {
   position: 85,
   weight: 25,
 };
 
-function compare<T extends keyof AllType, U extends keyof AllType>(
-  top: Pick<AllType, T>,
-  bottom: Pick<AllType, U>
+function compare(
+  top: Pick<AllType, "name" | "color">,
+  bottom: Pick<AllType, "position" | "weight">
 ): AllType {
   return {
-    name: top.name as string,
-    color: top.color as string,
-    position: bottom.position as number,
-    weight: bottom.weight as number,
+    name: top.name,
+    color: top.color,
+    position: bottom.position,
+    weight: bottom.weight,
   };
 }
 
